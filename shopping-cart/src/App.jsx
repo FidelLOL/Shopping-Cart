@@ -4,6 +4,7 @@ import { Header } from './components/Header.jsx'
 import { useState } from 'react'
 import Footer from './components/Footer.jsx'
 import { useFilters } from './hooks/useFilters.jsx'
+import { Cart } from './components/Cart.jsx'
 
 
 function App() {
@@ -16,11 +17,13 @@ function App() {
   return (
     <>
     <Header />
+    <Cart />
     <Products products={filteredProducts} />
     <Footer filters={filters} />
     </>
    
   )
 }
+
 
 export default App
