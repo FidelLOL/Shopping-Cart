@@ -5,23 +5,26 @@ import { useState } from 'react'
 import Footer from './components/Footer.jsx'
 import { useFilters } from './hooks/useFilters.jsx'
 import { Cart } from './components/Cart.jsx'
+import { CartProvider } from './context/cart.jsx'
 
 
 function App() {
-  const [products] = useState(initialProducts)
-  const { filters, filterProducts } = useFilters()
+  const products = initialProducts
+  const { filterProducts } = useFilters()
 
   const filteredProducts = filterProducts(products)
 
   
   return (
     <>
-    <Header />
+    <CartProvider>
+    <Header/>
     <Cart />
     <Products products={filteredProducts} />
-    <Footer filters={filters} />
+    <Footer />
+    </CartProvider>
+    
     </>
-   
   )
 }
 
